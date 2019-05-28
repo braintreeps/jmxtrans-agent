@@ -73,7 +73,6 @@ public class StatsDOutputWriter extends AbstractOutputWriter implements OutputWr
         if (statsType.equals(STATSD_DATADOG)) {
             String tagsStr = ConfigurationUtils.getString(settings, SETTINGS_TAGS, "");
             tags = Tag.tagsFromCommaSeparatedString(tagsStr);
-            tags.add(new Tag("host", ConfigurationUtils.getString(settings, SETTING_HOST_NAMME, getHostName().replaceAll("\\.", "_") )));
             metricNamePrefix = ConfigurationUtils.getString(settings, SETTING_ROOT_PREFIX, "java");
         } else if (statsType.equals(STATSD_SYSDIG)) {
             String tagsStr = ConfigurationUtils.getString(settings, SETTINGS_TAGS, "");
